@@ -4,20 +4,23 @@
 Core/
 ├── Inc/
 │   ├── Safety/
-│   │   ├── SafetyManager.hpp     ← 中核（FSM統合）
-│   │   ├── State.hpp             ← 抽象State
-│   │   ├── States.hpp            ← 各状態まとめ
-│   │   └── StateId.hpp           ← 状態ID定義
+│   │   ├── SafetyManager.hpp
+│   │   ├── State.hpp
+│   │   ├── States.hpp
+│   │   └── StateId.hpp
 │   │
 │   ├── Common/
 │   │   ├── FlightData.hpp
 │   │   ├── ControlData.hpp
-│   │   └── SystemContext.hpp     ← 状態間共有データ
+│   │   └── SystemContext.hpp
 │   │
 │   └── Debug/
-│       └── Log.hpp               ← ログ（PC/STM32切替）
+│       ├── Log.hpp
+│       └── CsvLogger.hpp   ← ★追加
 │
 ├── Src/
-│   └── Safety/
-│       └── SafetyManager.cpp     ← 実装
+│   └── Debug/
+│       └── CsvLogger.cpp   ← ★追加
+│
+└── main.cpp
 ```

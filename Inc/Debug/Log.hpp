@@ -3,10 +3,13 @@
 
 #include <iostream>
 
+#pragma once
+#include <iostream>
+
 #ifdef PC_DEBUG
-    #define LOG(x) std::cout << x << std::endl
+#define LOG(x) std::cout << x << std::endl
 #else
-    #define LOG(x) // UARTなどに差し替え
+#define LOG(x)
 #endif
 
 #endif /* LOG_HPP */

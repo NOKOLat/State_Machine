@@ -29,10 +29,4 @@ struct SensorData {
     uint16_t adc_value;
 };
 
-struct SystemContext {
-    
-    SensorData* sensor;
-    ControlData* control;
-};
-
 #endif /* DataTypes_HPP */

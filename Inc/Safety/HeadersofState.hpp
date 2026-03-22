@@ -9,6 +9,11 @@ class IdleState;
 class ArmedState;
 class ErrorState;
 
+// Factory function declarations
+inline std::unique_ptr<State> createIdleState();
+inline std::unique_ptr<State> createArmedState();
+inline std::unique_ptr<State> createErrorState();
+
 // ==============================
 // Idle
 // ==============================
@@ -23,7 +28,7 @@ public:
 
     std::unique_ptr<State> update(SafetyManager& sm) override {
         if (sm.ctx().armRequest) {
-            return std::make_unique<ArmedState>();
+            return createArmedState();
         }
         return nullptr;
     }
@@ -46,7 +51,7 @@ public:
 
     std::unique_ptr<State> update(SafetyManager& sm) override {
         if (sm.ctx().errorFlag) {
-            return std::make_unique<ErrorState>();
+            return createErrorState();
         }
         return nullptr;
     }
@@ -68,5 +73,20 @@ public:
         return nullptr;
     }
 };
+
+// ==============================
+// Factory functions
+// ==============================
+inline std::unique_ptr<State> createIdleState() {
+    return std::make_unique<IdleState>();
+}
+
+inline std::unique_ptr<State> createArmedState() {
+    return std::make_unique<ArmedState>();
+}
+
+inline std::unique_ptr<State> createErrorState() {
+    return std::make_unique<ErrorState>();
+}
 
 #endif /* HEADERS_OF_STATE_HPP */

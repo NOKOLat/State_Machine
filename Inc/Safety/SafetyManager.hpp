@@ -2,7 +2,7 @@
 #define SAFETY_MANAGER_HPP
 #include <memory>
 #include "State.hpp"
-#include "../Common/SystemContext.hpp"
+#include "Common/SystemContext.hpp"
 
 class SafetyManager {
 private:
