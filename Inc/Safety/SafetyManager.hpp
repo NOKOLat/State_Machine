@@ -19,6 +19,28 @@ public:
     }
 
     // ==========================
+    // 状態更新
+    // ==========================
+    void changeState(std::unique_ptr<State> newState) {
+
+        if(!newState) {
+            return;
+        }
+        else {
+
+            if (currentState){
+
+                currentState->onExit(*this);
+            }
+
+            currentState = std::move(newState);
+            printf("State changed to %d\n", static_cast<int>(currentState->getId()));
+            currentState->onEnter(*this);
+        }
+
+    }
+
+    // ==========================
     // 更新（周期実行）
     // ==========================
     void update() {
@@ -30,11 +52,12 @@ public:
         // 状態更新
         std::unique_ptr<State> next = currentState->update(*this);
 
-        if (next) {
-            currentState->onExit(*this);
-            currentState = std::move(next);
-            currentState->onEnter(*this);
-        }
+        // if (next) {
+            changeState(std::move(next));
+            // currentState->onExit(*this);
+            // currentState = std::move(next);
+            // currentState->onEnter(*this);
+        // }
     }
 
     // ==========================

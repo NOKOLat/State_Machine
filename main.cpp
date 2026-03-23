@@ -34,6 +34,10 @@ int main() {
             sm.ctx().armRequest = true;
         }
 
+        if(i == 15) {
+            sm.ctx().armRequest = false;
+        }
+
         if (i == 25) {
             sm.ctx().errorFlag = true;
         }
