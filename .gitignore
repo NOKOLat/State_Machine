@@ -1,5 +1,15 @@
-log.csv
-
 Makefile
 
 test
+
+# Logs
+*.csv
+
+# Build
+*.o
+
+# Build dirs
+Debug/
+
+# VSCode
+.vscode/
