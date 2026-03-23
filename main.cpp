@@ -15,7 +15,6 @@ int main() {
     // ==========================
     // 初期化
     // ==========================
-    sm.init(std::make_unique<IdleState>());
 
     if (!logger.open("log.csv")) {
         std::cerr << "Failed to open log file\n";

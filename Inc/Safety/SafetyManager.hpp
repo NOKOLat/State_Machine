@@ -2,6 +2,8 @@
 #define SAFETY_MANAGER_HPP
 #include <memory>
 #include "State.hpp"
+// #include "StateId.hpp" 
+// #include "HeadersofState.hpp"
 #include "Common/SystemContext.hpp"
 
 class SafetyManager {
@@ -10,6 +12,14 @@ private:
     SystemContext context;
 
 public:
+
+    SafetyManager(){
+
+        // 初期状態はIdle
+        currentState = std::make_unique<IdleState>();
+        currentState->onEnter(*this);
+    }
+
     // ==========================
     // 初期化
     // ==========================

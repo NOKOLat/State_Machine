@@ -33,7 +33,7 @@ Core/
 
 ```bash
 g++ main.cpp Src/Safety/SafetyManager.cpp Src/Debug/CsvLogger.cpp \
--I Inc -std=c++17 -o test ./test
+-I Inc -std=c++17 -o test && ./test
 ```
 
 このコマンドによって、
