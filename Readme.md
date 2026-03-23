@@ -1,29 +1,27 @@
 # ファイル構造
-(注) あとで直します。
 
 ```text
-Core/
-├── Inc/
-│   ├── Safety/
-│   │   ├── SafetyManager.hpp
-│   │   ├── State.hpp
-│   │   ├── States.hpp
-│   │   └── StateId.hpp
-│   │
-│   ├── Common/
-│   │   ├── FlightData.hpp
-│   │   ├── ControlData.hpp
+.
+├── Inc
+│   ├── Common
+│   │   ├── DataTypes.hpp
 │   │   └── SystemContext.hpp
-│   │
-│   └── Debug/
-│       ├── Log.hpp
-│       └── CsvLogger.hpp   ← ★追加
-│
-├── Src/
-│   └── Debug/
-│       └── CsvLogger.cpp   ← ★追加
-│
-└── main.cpp
+│   ├── Debug
+│   │   ├── CsvLogger.hpp
+│   │   └── Log.hpp
+│   └── Safety
+│       ├── HeadersofState.hpp
+│       ├── SafetyManager.hpp
+│       ├── State.hpp
+│       └── StateId.hpp
+├── Src
+│   ├── Debug
+│   │   └── CsvLogger.cpp
+│   └── Safety
+│       └── SaetyManager.cpp
+├── .gitignore
+├── main.cpp
+└── Readme.md
 ```
 
 # 実行方法
