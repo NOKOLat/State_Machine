@@ -12,6 +12,8 @@ int main() {
     SafetyManager sm;
     CsvLogger logger;
 
+    sm.init(std::make_unique<IdleState>());
+
     // ==========================
     // 初期化
     // ==========================

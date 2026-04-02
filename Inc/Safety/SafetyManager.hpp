@@ -13,17 +13,13 @@ private:
 
 public:
 
-    SafetyManager(){
-
-        // 初期状態はIdle
-        currentState = std::make_unique<IdleState>();
-        currentState->onEnter(*this);
-    }
-
     // ==========================
     // 初期化
     // ==========================
     void init(std::unique_ptr<State> initState) {
+
+        if(!initState) return;
+
         currentState = std::move(initState);
         if (currentState) currentState->onEnter(*this);
     }
@@ -36,12 +32,9 @@ public:
         if(!newState) {
             return;
         }
-        else {
+        else{
 
-            if (currentState){
-
-                currentState->onExit(*this);
-            }
+            if (currentState) currentState->onExit(*this);
 
             currentState = std::move(newState);
             printf("State changed to %d\n", static_cast<int>(currentState->getId()));
@@ -62,12 +55,10 @@ public:
         // 状態更新
         std::unique_ptr<State> next = currentState->update(*this);
 
-        // if (next) {
+        if (next) {
+            
             changeState(std::move(next));
-            // currentState->onExit(*this);
-            // currentState = std::move(next);
-            // currentState->onEnter(*this);
-        // }
+        }
     }
 
     // ==========================

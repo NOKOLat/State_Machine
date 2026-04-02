@@ -25,16 +25,18 @@
 ```
 
 # 実行方法
-## log.csv を生成するコマンド
-
-このディレクトリ内のすべての`.cpp`ファイルを実行の対象に設定する。
+## 1. ビルド
 
 ```bash
-g++ main.cpp Src/Safety/SafetyManager.cpp Src/Debug/CsvLogger.cpp \
--I Inc -std=c++17 -o test && ./test
+make
 ```
 
-このコマンドによって、
+## 2. 実行
+```bash
+make run
+```
 
-1. ターミナルに状態のログが出力される
-2. プロジェクトルートに`log.csv`が生成される
+## 3. ビルド成果物削除
+```bash
+make clean
+```

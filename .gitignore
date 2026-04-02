@@ -5,12 +5,10 @@ test
 
 # Build
 *.o
+Src/Debug/*.o
+Src/Safety/*.o
 
 # Build dirs
-
-
-#Makefile
-Makefile
 
 # VSCode
 .vscode//*
